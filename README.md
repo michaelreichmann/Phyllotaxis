@@ -9,6 +9,6 @@ The controls are:<br/>
 **size** of the pattern<br/>
 
 The result looks like this:<br/>
-![Resulting image](/gif/Phyllotaxis.gif)
+![Resulting image](/picture/Phyllotaxis.png)
 
 It is inspired by videos by [Numberphile](https://www.youtube.com/watch?v=sj8Sg8qnjOg) and [The Coding Train](https://www.youtube.com/watch?v=KWoJgHFYWxY).
