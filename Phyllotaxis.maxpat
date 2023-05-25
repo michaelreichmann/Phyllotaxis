@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 3,
-			"revision" : 0,
+			"minor" : 5,
+			"revision" : 4,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 79.0, 1212.0, 687.0 ],
+		"rect" : [ 266.0, 100.0, 1212.0, 687.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,46 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-23",
+					"maxclass" : "live.dial",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "float" ],
+					"parameter_enable" : 1,
+					"patching_rect" : [ 821.000000000000227, 393.0, 41.0, 48.0 ],
+					"saved_attribute_attributes" : 					{
+						"valueof" : 						{
+							"parameter_exponent" : 2.0,
+							"parameter_initial" : [ 80 ],
+							"parameter_initial_enable" : 1,
+							"parameter_longname" : "power",
+							"parameter_mmax" : 200.0,
+							"parameter_mmin" : 1.0,
+							"parameter_shortname" : "power",
+							"parameter_type" : 0,
+							"parameter_unitstyle" : 1
+						}
+
+					}
+,
+					"varname" : "power"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-17",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 821.000000000000227, 462.0, 58.0, 22.0 ],
+					"text" : "power $1"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-15",
 					"maxclass" : "comment",
@@ -89,7 +129,7 @@
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
 							"parameter_exponent" : 2.0,
-							"parameter_initial" : [ 0.15 ],
+							"parameter_initial" : [ 1.5 ],
 							"parameter_initial_enable" : 1,
 							"parameter_longname" : "size",
 							"parameter_mmax" : 10.0,
@@ -163,8 +203,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 3,
-							"revision" : 0,
+							"minor" : 5,
+							"revision" : 4,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -235,8 +275,8 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 3,
-											"revision" : 0,
+											"minor" : 5,
+											"revision" : 4,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -16280,7 +16320,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 677.000000000000114, 448.0, 47.0, 22.0 ],
+					"patching_rect" : [ 677.000000000000114, 455.0, 47.0, 22.0 ],
 					"text" : "size $1"
 				}
 
@@ -16337,21 +16377,21 @@
 				"box" : 				{
 					"id" : "obj-8",
 					"maxclass" : "newobj",
-					"numinlets" : 3,
+					"numinlets" : 4,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_matrix", "" ],
 					"patcher" : 					{
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 3,
-							"revision" : 0,
+							"minor" : 5,
+							"revision" : 4,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "jit.gen",
-						"rect" : [ 480.0, 96.0, 761.0, 510.0 ],
+						"rect" : [ 541.0, 192.0, 761.0, 510.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -16380,6 +16420,18 @@
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-2",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 186.0, 41.0, 28.0, 22.0 ],
+									"text" : "in 4"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-3",
 									"maxclass" : "comment",
@@ -16416,15 +16468,15 @@
 							}
 , 							{
 								"box" : 								{
-									"code" : "Param angle(2.3);\r\nParam size(2.5);\r\n\r\nposX = 0;\nposY = 0;\n\t\nprevPosX = 0;\nprevPosY = 0;\r\n\r\n\t\nfor(i = 0; i < cell; i+=1)\n{\n\tprevPosX = posX;\n\tprevPosY = posY;\n\t\t\t\t\n\tposX +=  sin(angle * i) * (size * 0.0001 * i);\n\tposY +=  cos(angle * i) * (size * 0.0001 * i);\t\t\n}\r\n\r\n\r\nout1 = vec(posX, posY, cell/dim);\r\nout2 = norm(in1);",
+									"code" : "Param angle(2.3);\r\nParam size(2.5);\r\nParam power(1);\r\n\r\nposX = 0;\nposY = 0;\n\t\r\n\t\nfor(i = 0; i < cell; i+=1)\n{\r\n\tdist = pow((i / cell), power) * size * 0.05;\n\tposX +=  sin(angle * i) * dist;\n\tposY +=  cos(angle * i) * dist;\t\t\n}\r\n\r\n\r\nout1 = vec(posX, posY, cell/dim);\r\n",
 									"fontface" : 0,
 									"fontname" : "<Monospaced>",
 									"fontsize" : 12.0,
 									"id" : "obj-5",
 									"maxclass" : "codebox",
 									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "" ],
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
 									"patching_rect" : [ 50.0, 71.0, 646.0, 371.0 ]
 								}
 
@@ -16470,7 +16522,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 389.0, 496.0, 307.000000000000114, 22.0 ],
+					"patching_rect" : [ 389.0, 496.0, 451.000000000000227, 22.0 ],
 					"text" : "jit.gen"
 				}
 
@@ -16562,8 +16614,8 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 3,
-							"revision" : 0,
+							"minor" : 5,
+							"revision" : 4,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -16769,6 +16821,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-8", 3 ],
+					"source" : [ "obj-17", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-25", 0 ],
 					"source" : [ "obj-18", 0 ]
 				}
@@ -16785,6 +16844,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
 					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-17", 0 ],
+					"source" : [ "obj-23", 0 ]
 				}
 
 			}
@@ -16853,6 +16919,7 @@
 			}
  ],
 		"parameters" : 		{
+			"obj-23" : [ "power", "power", 0 ],
 			"obj-44" : [ "tempo", "tempo", 0 ],
 			"obj-45" : [ "size", "size", 0 ],
 			"parameterbanks" : 			{
